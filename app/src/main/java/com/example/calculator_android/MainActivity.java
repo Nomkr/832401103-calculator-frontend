@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
     private StringBuilder expression = new StringBuilder();
 
+    // True right after "=" produced a result: the next key either starts a
+    // fresh expression or continues from the result if it is an operator.
+    private boolean justCalculated = false;
+
     private TextView tvDisplay;
     private LinearLayout historyPanel;
     private LinearLayout historyList;
@@ -129,10 +133,12 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.btn_clear).setOnClickListener(v -> {
             expression.setLength(0);
+            justCalculated = false;
             updateDisplay();
         });
 
         findViewById(R.id.btn_backspace).setOnClickListener(v -> {
+            justCalculated = false;
             if (expression.length() > 0) {
                 expression.deleteCharAt(expression.length() - 1);
                 updateDisplay();
@@ -160,9 +166,12 @@ public class MainActivity extends AppCompatActivity {
                     tvDisplay.setText(resultText);
                     calculateButton.setEnabled(true);
                     boolean networkFailed = resultText.startsWith("Request failed: ");
-                    if (!networkFailed
-                            && resultText.startsWith(displayExpression(expr) + " = ")
-                            && historyPanel.getVisibility() == View.VISIBLE) {
+                    boolean success = !networkFailed
+                            && resultText.startsWith(displayExpression(expr) + " = ");
+                    // Only a successful result starts a "new expression" mode;
+                    // after an error the user can keep editing the expression.
+                    justCalculated = success;
+                    if (success && historyPanel.getVisibility() == View.VISIBLE) {
                         loadHistory();
                     }
                 });
@@ -174,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             expression = new StringBuilder(
                     savedInstanceState.getString("state_expression", ""));
+            justCalculated = savedInstanceState.getBoolean("state_just_calculated", false);
             tvDisplay.setText(savedInstanceState.getString("state_display", "0"));
             if (savedInstanceState.getBoolean("state_history_visible", false)) {
                 historyPanel.setVisibility(View.VISIBLE);
@@ -189,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putString("state_expression", expression.toString());
         outState.putString("state_display", tvDisplay.getText().toString());
+        outState.putBoolean("state_just_calculated", justCalculated);
         outState.putBoolean("state_history_visible",
                 historyPanel.getVisibility() == View.VISIBLE);
     }
@@ -209,8 +220,18 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(v -> append(expressionText));
     }
 
-    /** Append one symbol to the expression and refresh the display. */
+    /**
+     * Append one symbol to the expression and refresh the display.
+     * After a result, operators continue from it while anything else
+     * (digits, ".", "(", "√") starts a brand-new expression.
+     */
     private void append(String s) {
+        if (justCalculated) {
+            if ("+-*/^%²".indexOf(s) < 0) {
+                expression.setLength(0);
+            }
+            justCalculated = false;
+        }
         expression.append(s);
         updateDisplay();
     }
