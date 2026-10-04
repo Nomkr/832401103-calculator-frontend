@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="history_bg">#1D2A3E</color>
+    <color name="text_secondary">#A8B7CC</color>
+    <color name="surface">#202D42</color>
+    <color name="bg_screen">#101A2B</color>
+    <color name="display_bg">#0A1322</color>
+    <color name="display_hint">#91A4BF</color>
+    <color name="text_display">#F8FAFC</color>
+    <color name="btn_digit_bg">#26364D</color>
+    <color name="btn_digit_text">#F8FAFC</color>
+    <color name="btn_util_bg">#35455D</color>
+    <color name="btn_util_text">#E5ECF5</color>
+    <color name="btn_operator_bg">#4B7FFF</color>
+    <color name="btn_operator_text">#FFFFFF</color>
+</resources>

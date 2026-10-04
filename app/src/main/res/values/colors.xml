@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="history_bg">#EAF0FA</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- ===== 计算器配色：浅色工作台、深色显示屏、蓝色操作键 ===== -->
+    <color name="bg_screen">#F5F7FB</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="display_bg">#17263D</color>
+    <color name="display_hint">#A9B8CF</color>
+    <color name="text_display">#F8FAFC</color>
+    <color name="btn_digit_bg">#FFFFFF</color>
+    <color name="btn_digit_text">#17263D</color>
+    <color name="btn_util_bg">#E6ECF5</color>
+    <color name="btn_util_text">#42526B</color>
+    <color name="btn_operator_bg">#2F6BFF</color>
+    <color name="btn_operator_text">#FFFFFF</color>
+</resources>
