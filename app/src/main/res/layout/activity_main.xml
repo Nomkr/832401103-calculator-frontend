@@ -32,12 +32,12 @@
 
         <Button
             android:id="@+id/btn_theme"
-            android:layout_width="76dp"
+            android:layout_width="wrap_content"
             android:layout_height="42dp"
             android:contentDescription="Toggle dark mode"
-            android:minWidth="0dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
+            android:minWidth="76dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
             android:text="Dark"
             android:textAllCaps="false"
             android:textColor="@color/btn_util_text"
@@ -47,8 +47,11 @@
 
         <Button
             android:id="@+id/btn_history"
-            android:layout_width="88dp"
+            android:layout_width="wrap_content"
             android:layout_height="42dp"
+            android:minWidth="88dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
             android:text="History"
             android:textAllCaps="false"
             android:textSize="14sp"

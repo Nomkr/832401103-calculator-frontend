@@ -406,9 +406,11 @@ public class MainActivity extends AppCompatActivity {
         delete.setTextSize(13);
         delete.setTextColor(getColor(R.color.btn_util_text));
         delete.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.btn_util_bg)));
+        delete.setMinWidth(0);
+        delete.setPadding(dp(8), 0, dp(8), 0);
         delete.setOnClickListener(v -> deleteHistory(item.optInt("id", -1)));
         row.addView(value);
-        row.addView(delete, new LinearLayout.LayoutParams(dp(64), dp(42)));
+        row.addView(delete, new LinearLayout.LayoutParams(dp(76), dp(42)));
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -2);
         params.setMargins(0, 0, 0, dp(4));
         historyList.addView(row, params);
