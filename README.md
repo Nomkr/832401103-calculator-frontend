@@ -71,4 +71,15 @@ private static final String[] BACKEND_URLS = {
 `assembleDebug` produces the installable APK; `test` runs the Android
 unit tests. Backend tests run separately in `calculator_backend`.
 
+## Demonstration Checklist
+
+1. Open `https://nomkr.pythonanywhere.com/api/health` and confirm the
+   response is `{"status":"ok"}`.
+2. Install `app/build/outputs/apk/debug/app-debug.apk`, or run the app from
+   Android Studio.
+3. Demonstrate `1+2*3`, an invalid expression, history loading, single-record
+   deletion, clear-all confirmation, and the day/night theme switch.
+4. For local development, start the Flask backend first. The client probes
+   the deployed HTTPS address, then the LAN and emulator fallback addresses.
+
 See [codestyle.md](codestyle.md) for code style.

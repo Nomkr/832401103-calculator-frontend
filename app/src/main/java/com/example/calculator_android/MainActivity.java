@@ -341,7 +341,7 @@ public class MainActivity extends AppCompatActivity {
                 int code = conn.getResponseCode();
                 InputStream is = (code >= 400) ? conn.getErrorStream() : conn.getInputStream();
                 if (is == null) {
-                    throw new IllegalStateException("服务返回空响应");
+                    throw new IllegalStateException("The server returned an empty response");
                 }
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(is, StandardCharsets.UTF_8));
@@ -440,7 +440,7 @@ public class MainActivity extends AppCompatActivity {
                 conn.setConnectTimeout(10000);
                 conn.setReadTimeout(10000);
                 if (conn.getResponseCode() >= 400) {
-                    throw new IllegalStateException("记录不存在");
+                    throw new IllegalStateException("History record not found");
                 }
                 runOnUiThread(this::loadHistory);
             } catch (Exception e) {
@@ -474,7 +474,7 @@ public class MainActivity extends AppCompatActivity {
                 conn.setConnectTimeout(10000);
                 conn.setReadTimeout(10000);
                 if (conn.getResponseCode() >= 400) {
-                    throw new IllegalStateException("清空失败");
+                    throw new IllegalStateException("Clear request failed");
                 }
                 runOnUiThread(this::loadHistory);
             } catch (Exception e) {
