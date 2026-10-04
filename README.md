@@ -41,7 +41,7 @@ After deploying the backend, put its HTTPS URL first in `BACKEND_URLS`:
 
 ```java
 private static final String[] BACKEND_URLS = {
-        "https://your-service.onrender.com",
+        "https://nomkr.pythonanywhere.com",
         "http://192.168.50.12:5000",
         "http://10.0.2.2:5000"
 };
