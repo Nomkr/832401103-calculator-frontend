@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 网络安全配置：允许明文 HTTP（开发阶段连本地后端 10.0.2.2 用） -->
+<!-- Allow cleartext HTTP for local emulator development. -->
 <network-security-config>
     <base-config cleartextTrafficPermitted="true" />
 </network-security-config>

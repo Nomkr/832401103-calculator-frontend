@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- 联网权限：没有它 App 无法访问网络 -->
+    <!-- Required for API requests. -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- usesCleartextTraffic=true：允许访问 http（明文）地址，开发阶段方便连本地后端 -->
+    <!-- Allow HTTP during local development; the deployed endpoint uses HTTPS. -->
     <application
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_security_config"

@@ -5,7 +5,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- ===== 计算器配色：浅色工作台、深色显示屏、蓝色操作键 ===== -->
+    <!-- Calculator palette: light workspace, dark display, and blue action keys. -->
     <color name="bg_screen">#F5F7FB</color>
     <color name="surface">#FFFFFF</color>
     <color name="display_bg">#17263D</color>
