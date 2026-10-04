@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     // Ordered fallback list of backend base URLs. The first one that passes
     // the /api/health check is reused for all subsequent requests.
     private static final String[] BACKEND_URLS = {
+            "https://nomkr.pythonanywhere.com",
             "http://192.168.50.12:5000",
             "http://10.0.2.2:5000"
     };
