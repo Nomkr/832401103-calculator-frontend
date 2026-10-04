@@ -109,8 +109,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Scientific keys.
         setButton(R.id.btn_sqrt, "√");
-        setButton(R.id.btn_square, "²");
-        setButton(R.id.btn_power, "^");
+        setButton(R.id.btn_square, "x²", "²");
+        setButton(R.id.btn_power, "x^y", "^");
         setButton(R.id.btn_percent, "%");
 
         themeButton = findViewById(R.id.btn_theme);
