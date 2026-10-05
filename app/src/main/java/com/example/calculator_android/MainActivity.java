@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean justCalculated = false;
 
     private TextView tvDisplay;
+    private ScrollView rootScroll;
     private LinearLayout historyPanel;
     private LinearLayout historyList;
     private Button calculateButton;
@@ -87,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         tvDisplay = findViewById(R.id.tv_display);
+        rootScroll = findViewById(R.id.scroll_root);
         historyPanel = findViewById(R.id.history_panel);
         historyList = findViewById(R.id.history_list);
         calculateButton = findViewById(R.id.btn_eq);
@@ -150,6 +153,9 @@ public class MainActivity extends AppCompatActivity {
             historyPanel.setVisibility(show ? View.VISIBLE : View.GONE);
             if (show) {
                 loadHistory();
+                // Scroll down to the history panel after it becomes visible.
+                rootScroll.post(() ->
+                        rootScroll.smoothScrollTo(0, rootScroll.getChildAt(0).getHeight()));
             }
         });
         findViewById(R.id.btn_clear_history).setOnClickListener(v -> confirmClearHistory());
